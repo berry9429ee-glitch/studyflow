@@ -1,0 +1,14 @@
+target/
+logs/
+reports/
+.m2/
+.tools/
+.agents/
+.vscode/
+.idea/
+.git/
+.github/
+docs/
+.env
+.env.*
+*.log

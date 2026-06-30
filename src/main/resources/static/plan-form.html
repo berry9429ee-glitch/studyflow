@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新建计划 - StudyFlow</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="dashboard.html">StudyFlow</a>
+    <nav class="sidebar-nav">
+      <a class="nav-item" data-nav="dashboard" href="dashboard.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a>
+      <a class="nav-item" data-nav="plans" href="plans.html"><i data-lucide="list-checks"></i><span class="nav-label">计划列表</span></a>
+      <a class="nav-item" data-nav="new-plan" href="plan-form.html"><i data-lucide="plus"></i><span class="nav-label">新建计划</span></a>
+      <a class="nav-item" data-nav="notifications" href="notifications.html"><i data-lucide="bell"></i><span class="nav-label">提醒中心</span></a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="user-avatar" data-user-avatar>SF</div>
+      <div class="user-meta">
+        <div class="user-name" data-user-name>StudyFlow</div>
+        <button class="logout-button" data-logout type="button"><i data-lucide="log-out"></i>退出</button>
+      </div>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title" data-form-title>新建计划</div>
+      </header>
+      <section class="content">
+        <form class="form-shell" id="plan-form" novalidate>
+          <div class="field">
+            <label for="title">计划标题*</label>
+            <input class="input" id="title" name="title" maxlength="100" required>
+          </div>
+          <div class="field">
+            <label for="category">分类</label>
+            <input class="input" id="category" name="category" list="category-suggestions">
+            <datalist id="category-suggestions">
+              <option value="Java基础"></option>
+              <option value="Spring"></option>
+              <option value="数据库"></option>
+              <option value="算法"></option>
+              <option value="其他"></option>
+            </datalist>
+          </div>
+          <div class="field">
+            <label for="description">描述</label>
+            <textarea class="textarea" id="description" name="description" rows="6"></textarea>
+          </div>
+          <div class="field">
+            <label>优先级</label>
+            <div class="segmented" data-priority-group>
+              <button class="segment" data-priority="1" type="button">低</button>
+              <button class="segment active" data-priority="2" type="button">中</button>
+              <button class="segment" data-priority="3" type="button">高</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="due-date">截止日期</label>
+            <input class="input" id="due-date" name="due-date" type="date">
+          </div>
+          <div class="field">
+            <label>初始任务</label>
+            <div class="task-list" data-task-list></div>
+            <button class="button" data-add-task type="button"><i data-lucide="plus"></i>添加任务</button>
+          </div>
+          <div class="form-error" data-form-error></div>
+          <div class="form-footer">
+            <a class="button" data-cancel-link href="plans.html">取消</a>
+            <button class="button primary" type="submit">保存</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/plan-form.js"></script>
+</body>
+</html>

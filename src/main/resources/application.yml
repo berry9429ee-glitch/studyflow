@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: studyflow
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    time-zone: Asia/Shanghai
+  messages:
+    basename: messages
+    encoding: UTF-8
+  datasource:
+    # Replace with your local MySQL 8.0 connection.
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/studyflow?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    # Local development MySQL password.
+    password: ${SPRING_DATASOURCE_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  redis:
+    host: ${SPRING_REDIS_HOST:localhost}
+    port: ${SPRING_REDIS_PORT:6379}
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+      database: ${SPRING_REDIS_DATABASE:0}
+      timeout: ${SPRING_REDIS_TIMEOUT:3000ms}
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.studyflow.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+jwt:
+  secret: ${JWT_SECRET:change-me-studyflow-dev-secret-change-me-studyflow-dev-secret-2026}
+  expiration: ${JWT_EXPIRATION:604800000}
+
+studyflow:
+  reminder:
+    enabled: ${STUDYFLOW_REMINDER_ENABLED:true}
+    due-soon-days: ${STUDYFLOW_REMINDER_DUE_SOON_DAYS:2}
+    scan-cron: "${STUDYFLOW_REMINDER_SCAN_CRON:0 0 8 * * *}"
+    zone: "${STUDYFLOW_REMINDER_ZONE:Asia/Shanghai}"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev

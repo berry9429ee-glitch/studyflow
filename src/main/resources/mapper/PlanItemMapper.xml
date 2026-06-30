@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studyflow.mapper.PlanItemMapper">
+    <resultMap id="PlanItemResultMap" type="com.studyflow.entity.PlanItem">
+        <id column="id" property="id"/>
+        <result column="plan_id" property="planId"/>
+        <result column="content" property="content"/>
+        <result column="is_done" property="done"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <select id="selectByPlanId" resultMap="PlanItemResultMap">
+        SELECT id, plan_id, content, is_done, sort_order, created_at
+        FROM plan_items
+        WHERE plan_id = #{planId}
+        ORDER BY sort_order ASC, id ASC
+    </select>
+
+    <select id="selectMaxSortOrder" resultType="java.lang.Integer">
+        SELECT COALESCE(MAX(sort_order), 0)
+        FROM plan_items
+        WHERE plan_id = #{planId}
+    </select>
+
+    <update id="markAllDone">
+        UPDATE plan_items
+        SET is_done = TRUE
+        WHERE plan_id = #{planId}
+    </update>
+</mapper>

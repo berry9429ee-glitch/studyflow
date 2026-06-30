@@ -1,0 +1,31 @@
+# Build outputs
+target/
+*.class
+*.jar
+
+# Runtime and generated artifacts
+logs/
+reports/
+.tools/
+.m2/
+.agents/
+
+# IDE and local tooling
+.vscode/
+.idea/
+*.iml
+maven-settings.xml
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Generated assistant/design notes that are not part of the project
+.github/modernize/
+docs/superpowers/
+docs/canvas-design-philosophy.md
+
+# OS files
+.DS_Store
+Thumbs.db

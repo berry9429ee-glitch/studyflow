@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专注中心 - StudyFlow</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/focus.css">
+</head>
+<body class="focus-page">
+  <header class="focus-topbar">
+    <a class="topbar-logo" href="dashboard.html" aria-label="StudyFlow Focus">
+      <span class="logo-mark"><i data-lucide="timer-reset"></i></span>
+      <span>StudyFlow Focus</span>
+    </a>
+    <nav class="topbar-nav" aria-label="页面导航">
+      <a href="#timer">专注台</a>
+      <a href="#tasks">任务</a>
+      <a href="#today">数据</a>
+      <a href="plans.html">计划</a>
+      <a href="notifications.html">提醒</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="session-state-pill" data-session-status>准备开始</span>
+      <a class="topbar-icon-btn" href="plans.html" title="计划列表" aria-label="计划列表">
+        <i data-lucide="list-checks"></i>
+      </a>
+      <a class="topbar-icon-btn" href="notifications.html" title="提醒中心" aria-label="提醒中心">
+        <i data-lucide="bell"></i>
+      </a>
+      <button class="topbar-icon-btn" data-toggle-stats title="今日统计" aria-label="今日统计">
+        <i data-lucide="bar-chart-2"></i>
+      </button>
+      <button class="topbar-icon-btn" data-toggle-settings title="节奏设置" aria-label="节奏设置">
+        <i data-lucide="sliders-horizontal"></i>
+      </button>
+      <button class="topbar-icon-btn" data-logout title="退出登录" aria-label="退出登录" type="button">
+        <i data-lucide="log-out"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="focus-main">
+    <section class="focus-hero glass-panel" id="today">
+      <div class="hero-copy">
+        <span class="eyebrow">番茄专注工作台</span>
+        <h1>把今天切成更容易完成的专注段。</h1>
+        <p data-insight-copy>今天还没有开始，挑一个任务进入状态。</p>
+      </div>
+      <div class="hero-metrics" aria-label="今日学习数据">
+        <div class="hero-metric">
+          <span>番茄</span>
+          <strong data-stat-pomodoros>0</strong>
+        </div>
+        <div class="hero-metric">
+          <span>专注</span>
+          <strong data-stat-minutes>0m</strong>
+        </div>
+        <div class="hero-metric">
+          <span>连续天数</span>
+          <strong data-stat-streak>0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="focus-workbench">
+      <article class="timer-card glass-panel" id="timer">
+        <div class="timer-card-header">
+          <div>
+            <span class="section-kicker">当前阶段</span>
+            <h2 data-current-mode-label>专注模式</h2>
+          </div>
+          <div class="mode-switcher" role="tablist" aria-label="番茄钟模式">
+            <button class="mode-btn active" data-mode="focus" type="button">专注</button>
+            <button class="mode-btn" data-mode="short" type="button">短休息</button>
+            <button class="mode-btn" data-mode="long" type="button">长休息</button>
+            <div class="mode-indicator" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <section class="timer-area" aria-label="番茄倒计时">
+          <div class="timer-ring-wrap">
+            <div class="timer-glow" data-timer-glow></div>
+            <svg class="timer-ring-svg" viewBox="0 0 280 280" aria-label="倒计时进度">
+              <circle class="ring-track" cx="140" cy="140" r="122"></circle>
+              <circle class="ring-progress" data-ring-progress cx="140" cy="140" r="122"></circle>
+            </svg>
+            <div class="timer-center">
+              <span class="timer-round-badge" data-round-label>第 1 / 4 个番茄</span>
+              <div class="timer-digits" data-time-display>
+                <span class="digit-group">
+                  <span data-min-tens>2</span><span data-min-ones>5</span>
+                </span>
+                <span class="digit-colon">:</span>
+                <span class="digit-group">
+                  <span data-sec-tens>0</span><span data-sec-ones>0</span>
+                </span>
+              </div>
+              <span class="timer-progress-text" data-session-progress-label>0% 完成</span>
+            </div>
+          </div>
+
+          <div class="current-task-card" data-current-task-card>
+            <i data-lucide="target" class="task-target-icon"></i>
+            <span data-current-task>选择一个任务开始专注</span>
+          </div>
+
+          <div class="timer-actions">
+            <button class="focus-btn primary" data-start-pause type="button">
+              <i data-lucide="play"></i>
+              <span>开始专注</span>
+            </button>
+            <button class="focus-btn skip" data-skip-session type="button" hidden>
+              <i data-lucide="skip-forward"></i>
+              <span>跳过休息</span>
+            </button>
+            <button class="focus-btn ghost" data-reset-timer type="button">
+              <i data-lucide="rotate-ccw"></i>
+              <span>重置</span>
+            </button>
+          </div>
+        </section>
+
+        <div class="rhythm-panel">
+          <div class="rhythm-copy">
+            <span>今日节奏</span>
+            <strong data-next-mode-label>完成专注后进入短休息</strong>
+          </div>
+          <div class="cycle-track" aria-label="四个番茄轮次">
+            <span class="cycle-dot" data-cycle-dot="1"></span>
+            <span class="cycle-dot" data-cycle-dot="2"></span>
+            <span class="cycle-dot" data-cycle-dot="3"></span>
+            <span class="cycle-dot" data-cycle-dot="4"></span>
+          </div>
+        </div>
+      </article>
+
+      <aside class="side-column">
+        <section class="stats-card glass-panel">
+          <div class="panel-heading">
+            <span class="section-kicker">今日专注</span>
+            <strong data-daily-goal-label>0 / 4</strong>
+          </div>
+          <div class="daily-progress-bar large">
+            <span data-daily-progress></span>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-tile">
+              <i data-lucide="timer"></i>
+              <span class="stat-value" data-stat-pomodoros>0</span>
+              <span class="stat-label">完成番茄</span>
+            </div>
+            <div class="stat-tile">
+              <i data-lucide="clock-3"></i>
+              <span class="stat-value" data-stat-minutes>0m</span>
+              <span class="stat-label">专注时长</span>
+            </div>
+            <div class="stat-tile">
+              <i data-lucide="flame"></i>
+              <span class="stat-value" data-stat-streak>0</span>
+              <span class="stat-label">连续天数</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="task-section glass-panel" id="tasks">
+          <div class="task-section-header" data-toggle-tasks>
+            <div class="task-header-left">
+              <span class="section-kicker">任务队列</span>
+              <h2>今天要完成什么？</h2>
+            </div>
+            <div class="task-header-right">
+              <span class="task-count-badge" data-task-count>0 项任务</span>
+              <button class="task-toggle-btn" aria-label="展开或收起任务">
+                <i data-lucide="chevron-up" class="task-chevron"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="task-body" data-task-body>
+            <form class="task-form" data-task-form novalidate>
+              <input class="task-input" data-task-title placeholder="添加任务，例如：复习 Spring Security" maxlength="80" autocomplete="off">
+              <div class="task-estimate-wrap">
+                <input class="task-input task-estimate" data-task-estimate type="number" min="1" max="12" value="1" aria-label="预计番茄数">
+                <span class="estimate-unit">个</span>
+              </div>
+              <button class="focus-btn primary compact" type="submit" aria-label="添加任务">
+                <i data-lucide="plus"></i>
+              </button>
+            </form>
+            <div class="task-error" data-task-error></div>
+            <div class="task-list" data-task-list></div>
+          </div>
+        </section>
+
+        <section class="history-card glass-panel" id="history">
+          <div class="panel-heading">
+            <div>
+              <span class="section-kicker">今日记录</span>
+              <strong data-history-summary>暂无专注记录</strong>
+            </div>
+          </div>
+          <div class="session-history" data-session-history></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div class="settings-overlay" data-settings-overlay hidden>
+    <div class="settings-panel">
+      <div class="settings-panel-header">
+        <div>
+          <span class="section-kicker">偏好设置</span>
+          <h2>节奏设置</h2>
+        </div>
+        <button class="settings-close-btn" data-settings-close aria-label="关闭设置">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form class="settings-form" data-settings-form novalidate>
+        <label class="settings-field">
+          <div class="settings-field-info">
+            <span class="settings-field-label">专注时长</span>
+            <span class="settings-field-hint">1 - 120 分钟</span>
+          </div>
+          <input class="settings-input" data-setting-focus type="number" min="1" max="120" value="25">
+        </label>
+        <label class="settings-field">
+          <div class="settings-field-info">
+            <span class="settings-field-label">短休息</span>
+            <span class="settings-field-hint">1 - 60 分钟</span>
+          </div>
+          <input class="settings-input" data-setting-short type="number" min="1" max="60" value="5">
+        </label>
+        <label class="settings-field">
+          <div class="settings-field-info">
+            <span class="settings-field-label">长休息</span>
+            <span class="settings-field-hint">1 - 90 分钟</span>
+          </div>
+          <input class="settings-input" data-setting-long type="number" min="1" max="90" value="15">
+        </label>
+        <label class="settings-field">
+          <div class="settings-field-info">
+            <span class="settings-field-label">今日目标</span>
+            <span class="settings-field-hint">1 - 16 个番茄</span>
+          </div>
+          <input class="settings-input" data-setting-goal type="number" min="1" max="16" value="4">
+        </label>
+        <label class="settings-toggle-row">
+          <div class="settings-field-info">
+            <span class="settings-field-label">自动开始下一阶段</span>
+            <span class="settings-field-hint">完成后直接进入休息或专注</span>
+          </div>
+          <input class="switch-input" data-setting-auto-start type="checkbox">
+          <span class="switch-control" aria-hidden="true"></span>
+        </label>
+        <label class="settings-toggle-row">
+          <div class="settings-field-info">
+            <span class="settings-field-label">完成提示音</span>
+            <span class="settings-field-hint">倒计时结束时播放轻提示</span>
+          </div>
+          <input class="switch-input" data-setting-sound type="checkbox">
+          <span class="switch-control" aria-hidden="true"></span>
+        </label>
+        <div class="settings-error" data-settings-error></div>
+        <button class="focus-btn primary full-width" type="submit">
+          <i data-lucide="save"></i>
+          <span>保存设置</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="stats-modal" data-stats-modal hidden>
+    <div class="stats-modal-box">
+      <div class="stats-modal-header">
+        <h2>今日数据</h2>
+        <button data-stats-close aria-label="关闭统计">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="stats-modal-grid">
+        <div class="stats-big-number">
+          <strong data-stat-pomodoros>0</strong>
+          <span>完成番茄</span>
+        </div>
+        <div class="stats-big-number">
+          <strong data-stat-minutes>0m</strong>
+          <span>专注时长</span>
+        </div>
+        <div class="stats-big-number">
+          <strong data-stat-streak>0</strong>
+          <span>连续天数</span>
+        </div>
+      </div>
+      <div class="stats-modal-progress">
+        <div class="daily-progress-top">
+          <span>今日目标进度</span>
+          <strong data-daily-goal-label>0 / 4</strong>
+        </div>
+        <div class="daily-progress-bar">
+          <span data-daily-progress></span>
+        </div>
+      </div>
+      <p class="insight-copy" data-insight-copy>今天还没有开始，挑一个任务进入状态。</p>
+    </div>
+  </div>
+
+  <div class="focus-modal" data-complete-modal hidden>
+    <div class="focus-modal-box">
+      <button class="modal-close" data-modal-close type="button" aria-label="关闭">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-mark">
+        <i data-lucide="badge-check"></i>
+      </div>
+      <h2 data-modal-title>专注完成</h2>
+      <p data-modal-message>完成一个番茄，离目标更近一步。</p>
+      <button class="focus-btn primary full-width" data-modal-next type="button">
+        <i data-lucide="play"></i>
+        <span>开始下一段</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

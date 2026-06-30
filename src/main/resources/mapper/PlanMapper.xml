@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studyflow.mapper.PlanMapper">
+    <resultMap id="PlanResultMap" type="com.studyflow.entity.Plan">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
+        <result column="category" property="category"/>
+        <result column="status" property="status"/>
+        <result column="priority" property="priority"/>
+        <result column="due_date" property="dueDate"/>
+        <result column="progress" property="progress"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="selectUserPlanPage" resultMap="PlanResultMap">
+        SELECT id, user_id, title, description, category, status, priority, due_date, progress, created_at, updated_at
+        FROM plans
+        WHERE user_id = #{userId}
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+        <if test="category != null and category != ''">
+            AND category = #{category}
+        </if>
+        <if test="keyword != null and keyword != ''">
+            AND (title LIKE CONCAT('%', #{keyword}, '%') OR description LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        ORDER BY updated_at DESC, id DESC
+    </select>
+
+    <select id="selectCategoryStats" resultType="java.util.Map">
+        SELECT COALESCE(NULLIF(category, ''), '未分类') AS category, COUNT(*) AS count
+        FROM plans
+        WHERE user_id = #{userId}
+        GROUP BY COALESCE(NULLIF(category, ''), '未分类')
+        ORDER BY count DESC, category ASC
+    </select>
+</mapper>
