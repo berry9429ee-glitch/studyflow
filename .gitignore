@@ -29,3 +29,4 @@ docs/canvas-design-philosophy.md
 # OS files
 .DS_Store
 Thumbs.db
+.netlify/
