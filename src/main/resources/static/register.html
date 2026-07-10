@@ -1,36 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>注册 - StudyFlow</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+  <meta http-equiv="refresh" content="0; url=dashboard.html#account">
+  <title>正在进入 StudyFlow</title>
 </head>
-<body class="auth-page">
-  <main class="auth-card">
-    <h1 class="auth-brand">StudyFlow</h1>
-    <p class="auth-subtitle">管理你的学习节奏</p>
-    <form id="register-form" novalidate>
-      <div class="field">
-        <label for="username">用户名</label>
-        <input class="input" id="username" name="username" autocomplete="username" required>
-      </div>
-      <div class="field">
-        <label for="email">邮箱</label>
-        <input class="input" id="email" name="email" type="email" autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="password">密码</label>
-        <input class="input" id="password" name="password" type="password" autocomplete="new-password" required>
-      </div>
-      <button class="button primary full" type="submit">注册</button>
-      <div class="form-error" data-auth-error></div>
-    </form>
-    <p class="auth-switch">已有账号? <a href="login.html">登录</a></p>
-  </main>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
+<body>
+  <p>正在进入账号区域，<a href="dashboard.html#account">点击继续</a>。</p>
+  <script>window.location.replace("dashboard.html#account");</script>
 </body>
 </html>

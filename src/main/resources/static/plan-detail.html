@@ -1,101 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>计划详情 - StudyFlow</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+  <meta http-equiv="refresh" content="0; url=dashboard.html#plans">
+  <title>正在进入 StudyFlow</title>
 </head>
 <body>
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="dashboard.html">StudyFlow</a>
-    <nav class="sidebar-nav">
-      <a class="nav-item" data-nav="dashboard" href="dashboard.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a>
-      <a class="nav-item" data-nav="plans" href="plans.html"><i data-lucide="list-checks"></i><span class="nav-label">计划列表</span></a>
-      <a class="nav-item" data-nav="new-plan" href="plan-form.html"><i data-lucide="plus"></i><span class="nav-label">新建计划</span></a>
-      <a class="nav-item" data-nav="notifications" href="notifications.html"><i data-lucide="bell"></i><span class="nav-label">提醒中心</span></a>
-    </nav>
-    <div class="sidebar-user">
-      <div class="user-avatar" data-user-avatar>SF</div>
-      <div class="user-meta">
-        <div class="user-name" data-user-name>StudyFlow</div>
-        <button class="logout-button" data-logout type="button"><i data-lucide="log-out"></i>退出</button>
-      </div>
-    </div>
-  </aside>
-  <div class="app-shell">
-    <main class="main">
-      <header class="topbar">
-        <div class="topbar-title">
-          <a class="icon-button" href="plans.html" aria-label="返回"><i data-lucide="arrow-left"></i></a>
-          <h1 data-plan-title>计划详情</h1>
-          <span data-title-status></span>
-        </div>
-        <div class="topbar-right" data-updated-at></div>
-      </header>
-      <section class="content">
-        <div class="detail-grid">
-          <div class="detail-left">
-            <div class="description-box empty" data-description>暂无描述</div>
-            <section>
-              <div class="checklist-header">
-                <h2 class="subheading">任务清单</h2>
-                <span class="count-badge" data-item-count>0 / 0</span>
-              </div>
-              <div class="checklist" data-checklist></div>
-              <div class="new-item-row">
-                <i data-lucide="plus" style="width:16px;height:16px;color:#666"></i>
-                <input class="new-item-input" data-new-item placeholder="添加任务并按 Enter">
-              </div>
-            </section>
-          </div>
-          <aside class="detail-right">
-            <section class="panel">
-              <div class="progress-circle-wrap">
-                <svg class="progress-circle" viewBox="0 0 120 120" aria-label="计划进度">
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a1a1a" stroke-width="8"></circle>
-                  <circle data-progress-ring cx="60" cy="60" r="52" fill="none" stroke="#5b7cf6" stroke-width="8" stroke-linecap="round" transform="rotate(-90 60 60)"></circle>
-                  <text data-progress-text x="60" y="67" text-anchor="middle">0%</text>
-                </svg>
-              </div>
-              <div class="meta-list">
-                <div class="meta-row"><span>分类</span><span data-meta-category>-</span></div>
-                <div class="meta-row"><span>优先级</span><span data-meta-priority>-</span></div>
-                <div class="meta-row"><span>截止日期</span><span data-meta-due>-</span></div>
-                <div class="meta-row"><span>创建时间</span><span data-meta-created>-</span></div>
-              </div>
-              <div class="stack-actions">
-                <button class="button" data-mark-done type="button">标记完成</button>
-                <a class="button" data-edit-link href="plan-form.html">编辑计划</a>
-                <button class="button danger" data-delete-plan type="button">删除</button>
-              </div>
-            </section>
-            <section class="panel" style="margin-top:16px">
-              <div class="panel-header">
-                <h2 class="subheading">活动记录</h2>
-              </div>
-              <div class="timeline" data-log-list></div>
-            </section>
-          </aside>
-        </div>
-      </section>
-    </main>
-  </div>
-  <div class="modal-backdrop" data-delete-modal>
-    <div class="modal-box">
-      <h2 class="modal-title">确认删除该计划?</h2>
-      <p class="modal-text">删除后计划和任务清单将不可恢复。</p>
-      <div class="modal-actions">
-        <button class="button" data-modal-cancel type="button">取消</button>
-        <button class="button primary" data-modal-confirm type="button">确认</button>
-      </div>
-    </div>
-  </div>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/plan-detail.js"></script>
+  <p>正在进入计划区域，<a href="dashboard.html#plans">点击继续</a>。</p>
+  <script>window.location.replace("dashboard.html#plans");</script>
 </body>
 </html>

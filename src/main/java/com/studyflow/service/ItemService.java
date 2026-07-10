@@ -36,7 +36,7 @@ public class ItemService {
         item.setPlanId(planId);
         item.setContent(request.getContent().trim());
         item.setDone(false);
-        item.setSortOrder(request.getSortOrder() == null ? maxOrder + 1 : request.getSortOrder());
+        item.setSortOrder(request.getSortOrder() == null ? safeMaxOrder(maxOrder) + 1 : request.getSortOrder());
         planItemMapper.insert(item);
 
         planService.recalculateProgressAndStatus(planId);
@@ -104,5 +104,9 @@ public class ItemService {
             throw new BusinessException(ErrorCode.NOT_FOUND, "任务不存在");
         }
         return item;
+    }
+
+    private int safeMaxOrder(Integer maxOrder) {
+        return maxOrder == null ? 0 : maxOrder;
     }
 }

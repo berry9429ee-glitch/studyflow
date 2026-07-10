@@ -1,66 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>提醒中心 - StudyFlow</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+  <meta http-equiv="refresh" content="0; url=dashboard.html#notifications">
+  <title>正在进入 StudyFlow</title>
 </head>
 <body>
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="dashboard.html">StudyFlow</a>
-    <nav class="sidebar-nav">
-      <a class="nav-item" data-nav="dashboard" href="dashboard.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a>
-      <a class="nav-item" data-nav="plans" href="plans.html"><i data-lucide="list-checks"></i><span class="nav-label">计划列表</span></a>
-      <a class="nav-item" data-nav="new-plan" href="plan-form.html"><i data-lucide="plus"></i><span class="nav-label">新建计划</span></a>
-      <a class="nav-item" data-nav="notifications" href="notifications.html"><i data-lucide="bell"></i><span class="nav-label">提醒中心</span></a>
-    </nav>
-    <div class="sidebar-user">
-      <div class="user-avatar" data-user-avatar>SF</div>
-      <div class="user-meta">
-        <div class="user-name" data-user-name>StudyFlow</div>
-        <button class="logout-button" data-logout type="button"><i data-lucide="log-out"></i>退出</button>
-      </div>
-    </div>
-  </aside>
-  <div class="app-shell">
-    <main class="main">
-      <header class="topbar">
-        <div class="topbar-title">
-          <h1>提醒中心</h1>
-          <span class="count-badge" data-unread-count>0 条未读</span>
-        </div>
-        <div class="topbar-right">
-          <button class="button" data-scan-reminders type="button"><i data-lucide="scan-line"></i>扫描提醒</button>
-          <button class="button" data-read-all type="button"><i data-lucide="check-check"></i>全部已读</button>
-        </div>
-      </header>
-      <section class="content">
-        <div class="filter-bar">
-          <div class="tabs" data-notification-tabs>
-            <button class="tab active" data-read="" type="button">全部</button>
-            <button class="tab" data-read="false" type="button">未读</button>
-            <button class="tab" data-read="true" type="button">已读</button>
-          </div>
-          <a class="button" href="plans.html"><i data-lucide="list-checks"></i>查看计划</a>
-        </div>
-        <section class="panel">
-          <div class="notification-list" data-notification-list></div>
-          <div class="empty-state" data-empty-state hidden>
-            <div>
-              <i data-lucide="bell-off"></i>
-              <div>暂无提醒</div>
-            </div>
-          </div>
-        </section>
-      </section>
-    </main>
-  </div>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/notifications.js"></script>
+  <p>正在进入提醒区域，<a href="dashboard.html#notifications">点击继续</a>。</p>
+  <script>window.location.replace("dashboard.html#notifications");</script>
 </body>
 </html>

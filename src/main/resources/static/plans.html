@@ -1,101 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>计划列表 - StudyFlow</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+  <meta http-equiv="refresh" content="0; url=dashboard.html#plans">
+  <title>正在进入 StudyFlow</title>
 </head>
 <body>
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="dashboard.html">StudyFlow</a>
-    <nav class="sidebar-nav">
-      <a class="nav-item" data-nav="dashboard" href="dashboard.html"><i data-lucide="layout-dashboard"></i><span class="nav-label">Dashboard</span></a>
-      <a class="nav-item" data-nav="plans" href="plans.html"><i data-lucide="list-checks"></i><span class="nav-label">计划列表</span></a>
-      <a class="nav-item" data-nav="new-plan" href="plan-form.html"><i data-lucide="plus"></i><span class="nav-label">新建计划</span></a>
-      <a class="nav-item" data-nav="notifications" href="notifications.html"><i data-lucide="bell"></i><span class="nav-label">提醒中心</span></a>
-    </nav>
-    <div class="sidebar-user">
-      <div class="user-avatar" data-user-avatar>SF</div>
-      <div class="user-meta">
-        <div class="user-name" data-user-name>StudyFlow</div>
-        <button class="logout-button" data-logout type="button"><i data-lucide="log-out"></i>退出</button>
-      </div>
-    </div>
-  </aside>
-  <div class="app-shell">
-    <main class="main">
-      <header class="topbar">
-        <div class="topbar-title">计划列表</div>
-        <div class="topbar-right">
-          <a class="button" href="notifications.html"><i data-lucide="bell"></i>提醒</a>
-          <a class="button" href="plan-form.html"><i data-lucide="plus"></i>新建计划</a>
-        </div>
-      </header>
-      <section class="content">
-        <div class="filter-bar">
-          <div class="tabs" data-status-tabs>
-            <button class="tab active" data-status="" type="button">全部</button>
-            <button class="tab" data-status="TODO" type="button">待开始</button>
-            <button class="tab" data-status="IN_PROGRESS" type="button">进行中</button>
-            <button class="tab" data-status="DONE" type="button">已完成</button>
-          </div>
-          <div class="filter-controls">
-            <select class="select" id="category-filter">
-              <option value="">全部分类</option>
-              <option value="Java基础">Java基础</option>
-              <option value="Spring">Spring</option>
-              <option value="数据库">数据库</option>
-              <option value="算法">算法</option>
-              <option value="其他">其他</option>
-            </select>
-            <input class="input" id="keyword-search" placeholder="搜索计划">
-          </div>
-        </div>
-        <div class="panel">
-          <div class="table-wrap">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th><input type="checkbox" aria-label="选择全部"></th>
-                  <th>标题</th>
-                  <th>分类</th>
-                  <th>优先级</th>
-                  <th>截止</th>
-                  <th>进度条</th>
-                  <th>状态</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody data-plan-list></tbody>
-            </table>
-          </div>
-          <div class="empty-state" data-empty-state hidden>
-            <div>
-              <i data-lucide="clipboard-list"></i>
-              <div>暂无计划</div>
-              <a href="plan-form.html">创建第一个计划 →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-  <div class="modal-backdrop" data-delete-modal>
-    <div class="modal-box">
-      <h2 class="modal-title">确认删除该计划?</h2>
-      <p class="modal-text">删除后计划和任务清单将不可恢复。</p>
-      <div class="modal-actions">
-        <button class="button" data-modal-cancel type="button">取消</button>
-        <button class="button primary" data-modal-confirm type="button">确认</button>
-      </div>
-    </div>
-  </div>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/plans.js"></script>
+  <p>正在进入计划区域，<a href="dashboard.html#plans">点击继续</a>。</p>
+  <script>window.location.replace("dashboard.html#plans");</script>
 </body>
 </html>

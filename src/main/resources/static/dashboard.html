@@ -1,334 +1,663 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>专注中心 - StudyFlow</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/focus.css">
-</head>
-<body class="focus-page">
-  <header class="focus-topbar">
-    <a class="topbar-logo" href="dashboard.html" aria-label="StudyFlow Focus">
-      <span class="logo-mark"><i data-lucide="timer-reset"></i></span>
-      <span>StudyFlow Focus</span>
-    </a>
-    <nav class="topbar-nav" aria-label="页面导航">
-      <a href="#timer">专注台</a>
-      <a href="#tasks">任务</a>
-      <a href="#today">数据</a>
-      <a href="plans.html">计划</a>
-      <a href="notifications.html">提醒</a>
-    </nav>
-    <div class="topbar-actions">
-      <span class="session-state-pill" data-session-status>准备开始</span>
-      <a class="topbar-icon-btn" href="plans.html" title="计划列表" aria-label="计划列表">
-        <i data-lucide="list-checks"></i>
-      </a>
-      <a class="topbar-icon-btn" href="notifications.html" title="提醒中心" aria-label="提醒中心">
-        <i data-lucide="bell"></i>
-      </a>
-      <button class="topbar-icon-btn" data-toggle-stats title="今日统计" aria-label="今日统计">
-        <i data-lucide="bar-chart-2"></i>
-      </button>
-      <button class="topbar-icon-btn" data-toggle-settings title="节奏设置" aria-label="节奏设置">
-        <i data-lucide="sliders-horizontal"></i>
-      </button>
-      <button class="topbar-icon-btn" data-logout title="退出登录" aria-label="退出登录" type="button">
-        <i data-lucide="log-out"></i>
-      </button>
-    </div>
-  </header>
 
-  <main class="focus-main">
-    <section class="focus-hero glass-panel" id="today">
-      <div class="hero-copy">
-        <span class="eyebrow">番茄专注工作台</span>
-        <h1>把今天切成更容易完成的专注段。</h1>
-        <p data-insight-copy>今天还没有开始，挑一个任务进入状态。</p>
-      </div>
-      <div class="hero-metrics" aria-label="今日学习数据">
-        <div class="hero-metric">
-          <span>番茄</span>
-          <strong data-stat-pomodoros>0</strong>
-        </div>
-        <div class="hero-metric">
-          <span>专注</span>
-          <strong data-stat-minutes>0m</strong>
-        </div>
-        <div class="hero-metric">
-          <span>连续天数</span>
-          <strong data-stat-streak>0</strong>
-        </div>
-      </div>
-    </section>
+<html class="scroll-smooth" lang="zh"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-variant": "#e1e3e4",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#3f4752",
+                      "on-secondary-fixed-variant": "#43474c",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e7e8e9",
+                      "tertiary-fixed-dim": "#bfc7d4",
+                      "secondary-fixed": "#dfe3e8",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#5f6368",
+                      "on-tertiary-fixed": "#141c26",
+                      "inverse-surface": "#2e3132",
+                      "surface": "#f8f9fa",
+                      "surface-container": "#edeeef",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#414754",
+                      "tertiary-fixed": "#dbe3f1",
+                      "outline-variant": "#c1c6d6",
+                      "surface-container-low": "#f3f4f5",
+                      "surface-bright": "#f8f9fa",
+                      "on-error": "#ffffff",
+                      "on-surface": "#191c1d",
+                      "tertiary-container": "#6f7783",
+                      "primary": "#005bbf",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#dde0e6",
+                      "surface-tint": "#005bc0",
+                      "on-primary-fixed": "#001a41",
+                      "on-primary-fixed-variant": "#004493",
+                      "surface-dim": "#d9dadb",
+                      "primary-fixed-dim": "#adc7ff",
+                      "tertiary": "#565e6a",
+                      "on-primary-container": "#ffffff",
+                      "primary-fixed": "#d8e2ff",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#adc7ff",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-secondary-fixed": "#181c20",
+                      "primary-container": "#1a73e8",
+                      "on-tertiary-container": "#ffffff",
+                      "secondary-fixed-dim": "#c3c7cc",
+                      "outline": "#727785",
+                      "background": "#f8f9fa",
+                      "secondary": "#5b5f64",
+                      "on-background": "#191c1d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "lg": "0.75rem",
+                      "xl": "1rem",
+                      "full": "9999px",
+                      "2xl": "1.5rem",
+                      "3xl": "2rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "margin-tablet": "32px",
+                      "stack-lg": "32px",
+                      "margin-mobile": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "44px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              },
+              "boxShadow": {
+                "ambient": "0 8px 32px rgba(26, 115, 232, 0.08)",
+                "ambient-hover": "0 12px 48px rgba(26, 115, 232, 0.12)",
+                "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+                "glow": "0 0 20px rgba(26, 115, 232, 0.4)",
+              },
+              "animation": {
+                "subtle-pulse": "subtle-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "fade-in-up": "fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              },
+              "keyframes": {
+                "subtle-pulse": {
+                  "0%, 100%": { opacity: 1, transform: "scale(1)" },
+                  "50%": { opacity: .95, transform: "scale(0.98)" },
+                },
+                "fadeInUp": {
+                  "0%": { opacity: 0, transform: "translateY(20px)" },
+                  "100%": { opacity: 1, transform: "translateY(0)" }
+                }
+              }
+      },
+          },
+        }
+    }catch(_e){}</script></head><body class="relative font-body-md antialiased overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed"><div class="fixed left-0 top-0 w-full pointer-events-none z-0 overflow-visible" id="threejs-container-ULTRA_PREMIUM_CLOCK" style="height: 225vh;"></div>
+<!-- Ambient Background Mesh -->
+<div class="fixed inset-0 z-[-1] pointer-events-none" style="background: radial-gradient(circle at 15% 50%, rgba(26, 115, 232, 0.03), transparent 50%), radial-gradient(circle at 85% 30%, rgba(0, 91, 191, 0.04), transparent 50%); background-attachment: fixed;"></div>
+<!-- Floating Navigation -->
+<nav class="fixed right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-50 mix-blend-multiply opacity-50 hover:opacity-100 transition-opacity duration-300 hidden md:flex">
+<a aria-label="返回顶部" class="w-3 h-3 rounded-full bg-outline hover:bg-primary transition-colors hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#hero"></a>
+<a aria-label="学习计划" class="w-3 h-3 rounded-full bg-outline hover:bg-primary transition-colors hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#plans"></a>
+<a aria-label="统计分析" class="w-3 h-3 rounded-full bg-outline hover:bg-primary transition-colors hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#dashboard"></a>
+<a aria-label="通知中心" class="w-3 h-3 rounded-full bg-outline hover:bg-primary transition-colors hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#notifications"></a>
+</nav>
+<!-- Brand Anchor -->
+<div class="fixed top-6 left-8 z-50 mix-blend-multiply">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">StudyFlow</h1>
+</div>
+<!-- Top Section: Immersive Hero -->
+<section class="relative z-10 w-full h-screen flex flex-col items-center justify-end pb-32 overflow-hidden snap-start bg-transparent" id="hero">
+<!-- Giant Mechanical Clock Background -->
+<!-- Timer Controls (Glassmorphism) -->
+<div class="relative z-10 mx-auto mt-auto flex max-w-md flex-col items-center gap-6 rounded-2xl border border-white/70 bg-white/90 p-5 shadow-xl shadow-blue-500/10 backdrop-blur-xl transition-all duration-300 sm:p-10 animate-fade-in-up" style="animation-play-state: running; width: min(28rem, calc(100% - 2rem)); box-sizing: border-box;">
+<h2 class="font-display-lg text-[64px] leading-tight text-on-surface text-center whitespace-nowrap tracking-tighter drop-shadow-sm">
+<span class="font-bold" id="display-minutes">25</span>:<span class="" id="display-seconds">00</span>
+</h2>
+<p class="font-title-lg text-title-lg text-on-surface-variant text-center -mt-4 tracking-widest uppercase">专注时刻</p>
+<div class="w-full gap-2 rounded-2xl border border-white/70 bg-white/80 p-2 shadow-sm backdrop-blur-xl sm:gap-3" style="display: grid; grid-template-columns: minmax(0, 1fr) 1px auto auto; align-items: center; box-sizing: border-box;">
+<div class="relative flex min-w-0 items-center sm:w-28">
+<input aria-label="设置分钟数" class="w-full border-none bg-transparent pr-10 text-center font-title-lg text-title-lg text-on-surface focus:outline-none focus:ring-0" id="input-minutes" max="120" min="1" type="number" value="25"/>
+<span class="absolute right-3 text-on-surface-variant font-label-lg text-label-lg">分钟</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<button aria-label="开始计时" class="flex shrink-0 items-center justify-center gap-2 rounded-xl border border-white/20 bg-[#1a73e8] px-4 py-3 font-title-lg text-title-lg text-white shadow-lg shadow-[#1a73e8]/30 transition-all duration-300 hover:bg-[#1557b0] hover:shadow-glow active:scale-95 sm:px-8 animate-subtle-pulse hover:animate-none" id="btn-start" title="开始计时">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+<span class="hidden sm:inline">开始</span>
+                </button>
+<button class="bg-white/50 text-on-surface-variant font-title-lg text-title-lg px-4 py-3 rounded-xl hover:bg-white/80 transition-all active:scale-95 flex items-center justify-center hidden border border-white/40 shadow-sm" id="btn-reset">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Scroll Down Hint -->
+<a class="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 transform flex-col items-center gap-2 text-on-surface-variant transition-colors hover:text-primary md:flex animate-bounce" href="#plans">
+<span class="font-label-lg text-label-lg uppercase tracking-widest">向下滚动探索</span>
+<span class="material-symbols-outlined light-icon" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</a>
+</section>
+<!-- Bottom Sections Wrapper -->
+<main class="w-full max-w-7xl mx-auto px-6 py-32 flex flex-col gap-64 relative z-10">
+<!-- Zone 1: My Plans -->
+<section class="snap-start scroll-mt-32" id="plans">
+<div class="flex items-end justify-between mb-12 opacity-0 animate-fade-in-up stagger-1" style="animation-play-state: running;">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 tracking-tight">我的计划</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant tracking-wide">今日学习概览与任务清单</p>
+</div>
+<button class="text-primary hover:bg-primary-fixed-dim/30 px-4 py-2 rounded-lg transition-colors font-label-lg text-label-lg flex items-center gap-1 tracking-wider">
+                    查看全部 <span class="material-symbols-outlined text-[18px] light-icon" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white/40 backdrop-blur-xl rounded-2xl p-8 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 flex flex-col gap-5 opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<!-- Main Task Card -->
+<div class="md:col-span-2 bg-white/40 backdrop-blur-xl rounded-2xl p-8 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 relative overflow-hidden group opacity-0 animate-fade-in-up stagger-2" style="animation-play-state: running;">
+<div class="absolute top-0 right-0 w-48 h-48 bg-primary-fixed-dim/20 rounded-bl-full -mr-20 -mt-20 transition-transform duration-500 group-hover:scale-125"></div>
+<div class="relative z-10 flex flex-col h-full justify-between gap-8">
+<div class="flex items-start justify-between">
+<span class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-4 py-1.5 rounded-full tracking-wider">进行中</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 tracking-tight">高等数学 - 微积分复习</h3>
+<p class="font-body-md text-[15px] leading-relaxed text-on-surface-variant line-clamp-2 max-w-xl">完成第三章导数与微分的课后习题，重点复习复合函数求导法则及隐函数求导。</p>
+</div>
+<div class="flex items-center gap-6 mt-auto">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-md text-[15px]">
+<span class="material-symbols-outlined text-[18px] light-icon" data-icon="schedule">schedule</span> 剩余 45 分钟
+                            </div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[60%] rounded-full shadow-[0_0_8px_rgba(26,115,232,0.6)]"></div>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant tracking-wider">60%</span>
+</div>
+</div>
+</div>
+<!-- Secondary Task Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/20 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 flex flex-col gap-5 opacity-0 animate-fade-in-up stagger-3" style="animation-play-state: running;">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-xl flex items-center justify-center text-on-tertiary-fixed mb-2 shadow-sm">
+<span class="material-symbols-outlined light-icon text-[28px]" data-icon="menu_book">menu_book</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface tracking-tight">英语六级阅读</h3>
+<p class="font-body-md text-[15px] text-on-surface-variant flex-grow leading-relaxed">完成两篇精读练习，整理生词本。</p>
+<button class="w-full py-2.5 border border-outline text-on-surface font-label-lg text-label-lg rounded-lg hover:bg-surface-container hover:border-outline-variant transition-colors mt-auto tracking-wider">
+                         开始任务
+                     </button>
+</div>
+<!-- Secondary Task Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/20 hover:-translate-y-1 hover:shadow-ambient transition-all duration-300 flex flex-col gap-5 opacity-0 animate-fade-in-up stagger-4" style="animation-play-state: running;">
+<div class="w-14 h-14 bg-secondary-fixed rounded-xl flex items-center justify-center text-on-secondary-fixed mb-2 shadow-sm">
+<span class="material-symbols-outlined light-icon text-[28px]" data-icon="code">code</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface tracking-tight">Python 数据分析</h3>
+<p class="font-body-md text-[15px] text-on-surface-variant flex-grow leading-relaxed">学习 Pandas 基础语法及数据清洗流程。</p>
+<button class="w-full py-2.5 border border-outline text-on-surface font-label-lg text-label-lg rounded-lg hover:bg-surface-container hover:border-outline-variant transition-colors mt-auto tracking-wider">
+                         开始任务
+                     </button>
+</div>
+</div>
+</section>
+<!-- Zone 2: Dashboard -->
+<section class="snap-start scroll-mt-32" id="dashboard">
+<div class="md:col-span-3 bg-white/40 backdrop-blur-xl rounded-2xl p-10 border border-white/20 h-96 flex flex-col items-center justify-center text-on-surface relative overflow-hidden hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 tracking-tight">统计分析</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant tracking-wide">掌握你的学习节奏与效率</p>
+</div>
+</div>
+<div class="md:col-span-3 bg-white/40 backdrop-blur-xl rounded-2xl p-10 border border-white/20 h-96 flex flex-col items-center justify-center text-on-surface relative overflow-hidden hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<!-- Stat Card 1 -->
+<div class="bg-white/40 backdrop-blur-xl rounded-2xl p-8 border border-white/20 flex items-center gap-6 hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/50 flex items-center justify-center text-primary-container-on">
+<span class="material-symbols-outlined text-[32px] light-icon text-primary" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div>
+<p class="font-label-lg text-[13px] text-on-surface-variant uppercase tracking-widest mb-1.5">连续专注</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">12 <span class="font-body-md text-[15px] font-normal text-on-surface-variant ml-1">天</span></p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-white/40 backdrop-blur-xl rounded-2xl p-8 border border-white/20 flex items-center gap-6 hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container/50 flex items-center justify-center text-tertiary-container-on">
+<span class="material-symbols-outlined text-[32px] light-icon text-tertiary" data-icon="timer">timer</span>
+</div>
+<div>
+<p class="font-label-lg text-[13px] text-on-surface-variant uppercase tracking-widest mb-1.5">本周时长</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">28.5 <span class="font-body-md text-[15px] font-normal text-on-surface-variant ml-1">小时</span></p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-white/40 backdrop-blur-xl rounded-2xl p-8 border border-white/20 flex items-center gap-6 hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/50 flex items-center justify-center text-secondary-container-on">
+<span class="material-symbols-outlined text-[32px] light-icon text-secondary" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<p class="font-label-lg text-[13px] text-on-surface-variant uppercase tracking-widest mb-1.5">完成任务</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">45 <span class="font-body-md text-[15px] font-normal text-on-surface-variant ml-1">项</span></p>
+</div>
+</div>
+<!-- Chart Area Placeholder -->
+<div class="md:col-span-3 bg-surface-container-lowest rounded-2xl p-10 border border-outline-variant/30 h-96 flex flex-col items-center justify-center text-on-surface-variant relative overflow-hidden hover:shadow-sm transition-shadow opacity-0 animate-fade-in-up stagger-2" style="animation-play-state: running;">
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, theme('colors.outline') 1px, transparent 0); background-size: 32px 32px;"></div>
+<span class="material-symbols-outlined text-[56px] mb-5 opacity-40 light-icon" data-icon="bar_chart">bar_chart</span>
+<p class="font-title-lg text-title-lg tracking-tight">学习趋势图表区域</p>
+<p class="font-body-md text-[15px] mt-3 max-w-md text-center leading-relaxed">这里将展示交互式的专注时长分布与效率波动折线图，帮助你直观了解学习状态。</p>
+</div>
+</div>
+</section>
+<!-- Zone 3: Notifications -->
+<section class="snap-start scroll-mt-32 mb-40" id="notifications">
+<div class="flex items-end justify-between mb-12 opacity-0 animate-fade-in-up stagger-1" style="animation-play-state: running;">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 tracking-tight">最近通知</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant tracking-wide">系统提示与学习动态</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 max-w-3xl">
+<!-- Notification Item -->
+<div class="flex items-start gap-5 p-5 rounded-2xl bg-white/30 backdrop-blur-lg hover:bg-white/50 transition-all cursor-pointer group border border-white/10 hover:border-white/30 opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[24px] light-icon" data-icon="celebration">celebration</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1.5 tracking-tight">达成里程碑：专注达人</h4>
+<p class="font-body-md text-[15px] text-on-surface-variant mb-3 leading-relaxed">恭喜！你已累计专注超过 100 小时，解锁了新的徽章。</p>
+<span class="font-label-lg text-label-lg text-outline tracking-wider">2 小时前</span>
+</div>
+</div>
+<hr class="border-outline-variant/20 ml-16 opacity-0 animate-fade-in-up stagger-2" style="animation-play-state: running;"/>
+<!-- Notification Item -->
+<div class="flex items-start gap-5 p-5 rounded-2xl bg-white/30 backdrop-blur-lg hover:bg-white/50 transition-all cursor-pointer group border border-white/10 hover:border-white/30 opacity-0 animate-fade-in-up" style="animation-play-state: running;">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[24px] light-icon" data-icon="system_update">system_update</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1.5 tracking-tight">系统更新 v2.4</h4>
+<p class="font-body-md text-[15px] text-on-surface-variant mb-3 leading-relaxed">全新的统计图表功能已上线，支持导出学习周报，快去体验吧。</p>
+<span class="font-label-lg text-label-lg text-outline tracking-wider">昨天 14:30</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ULTRA_PREMIUM_CLOCK');
+  if (!container || !window.THREE) return;
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+  const CLOCK_VISUAL_SCALE = 1;
+  const CLOCK_HOME_Y = 4.2;
+  const CLOCK_REVEAL_TRAVEL = 3.4;
+  const CLOCK_FOLLOW_TRAVEL = 2.4;
+  let clockScrollY = CLOCK_HOME_Y;
+  let clockScrollProgress = 0;
 
-    <section class="focus-workbench">
-      <article class="timer-card glass-panel" id="timer">
-        <div class="timer-card-header">
-          <div>
-            <span class="section-kicker">当前阶段</span>
-            <h2 data-current-mode-label>专注模式</h2>
-          </div>
-          <div class="mode-switcher" role="tablist" aria-label="番茄钟模式">
-            <button class="mode-btn active" data-mode="focus" type="button">专注</button>
-            <button class="mode-btn" data-mode="short" type="button">短休息</button>
-            <button class="mode-btn" data-mode="long" type="button">长休息</button>
-            <div class="mode-indicator" aria-hidden="true"></div>
-          </div>
-        </div>
+  function clamp01(value) {
+    return Math.max(0, Math.min(1, value));
+  }
 
-        <section class="timer-area" aria-label="番茄倒计时">
-          <div class="timer-ring-wrap">
-            <div class="timer-glow" data-timer-glow></div>
-            <svg class="timer-ring-svg" viewBox="0 0 280 280" aria-label="倒计时进度">
-              <circle class="ring-track" cx="140" cy="140" r="122"></circle>
-              <circle class="ring-progress" data-ring-progress cx="140" cy="140" r="122"></circle>
-            </svg>
-            <div class="timer-center">
-              <span class="timer-round-badge" data-round-label>第 1 / 4 个番茄</span>
-              <div class="timer-digits" data-time-display>
-                <span class="digit-group">
-                  <span data-min-tens>2</span><span data-min-ones>5</span>
-                </span>
-                <span class="digit-colon">:</span>
-                <span class="digit-group">
-                  <span data-sec-tens>0</span><span data-sec-ones>0</span>
-                </span>
-              </div>
-              <span class="timer-progress-text" data-session-progress-label>0% 完成</span>
-            </div>
-          </div>
+  function updateClockScrollFollow() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const lowerHalfPoint = window.innerHeight * 0.58;
+    const revealProgress = clamp01(scrollY / (window.innerHeight * 1.05));
+    const followProgress = clamp01((scrollY - lowerHalfPoint) / (window.innerHeight * 1.15));
+    clockScrollProgress = Math.max(revealProgress, followProgress);
+    clockScrollY = CLOCK_HOME_Y + revealProgress * CLOCK_REVEAL_TRAVEL + followProgress * CLOCK_FOLLOW_TRAVEL;
+    const rect = container.getBoundingClientRect();
+    container.dataset.scrollPhase = scrollY < lowerHalfPoint ? 'upper-dial' : 'lower-dial-following';
+    window.__studyFlowClockState = {
+      scrollY,
+      groupY: clockScrollY,
+      progress: clockScrollProgress,
+      lowerHalfPoint,
+      revealProgress,
+      followProgress,
+      visualScale: CLOCK_VISUAL_SCALE,
+      homeY: CLOCK_HOME_Y,
+      phase: container.dataset.scrollPhase,
+      rectTop: rect.top,
+      rectBottom: rect.bottom
+    };
+  }
 
-          <div class="current-task-card" data-current-task-card>
-            <i data-lucide="target" class="task-target-icon"></i>
-            <span data-current-task>选择一个任务开始专注</span>
-          </div>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  // Keep the clock oversized while scroll moves the actual 3D model through the viewport.
+  camera.position.set(0, 0, 18);
+  camera.lookAt(0, 0, 0);
 
-          <div class="timer-actions">
-            <button class="focus-btn primary" data-start-pause type="button">
-              <i data-lucide="play"></i>
-              <span>开始专注</span>
-            </button>
-            <button class="focus-btn skip" data-skip-session type="button" hidden>
-              <i data-lucide="skip-forward"></i>
-              <span>跳过休息</span>
-            </button>
-            <button class="focus-btn ghost" data-reset-timer type="button">
-              <i data-lucide="rotate-ccw"></i>
-              <span>重置</span>
-            </button>
-          </div>
-        </section>
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.domElement.style.display = 'block';
+  renderer.domElement.style.width = '100%';
+  renderer.domElement.style.height = '100%';
+  container.appendChild(renderer.domElement);
 
-        <div class="rhythm-panel">
-          <div class="rhythm-copy">
-            <span>今日节奏</span>
-            <strong data-next-mode-label>完成专注后进入短休息</strong>
-          </div>
-          <div class="cycle-track" aria-label="四个番茄轮次">
-            <span class="cycle-dot" data-cycle-dot="1"></span>
-            <span class="cycle-dot" data-cycle-dot="2"></span>
-            <span class="cycle-dot" data-cycle-dot="3"></span>
-            <span class="cycle-dot" data-cycle-dot="4"></span>
-          </div>
-        </div>
-      </article>
+  // Elite Cinematic Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
+  scene.add(ambientLight);
 
-      <aside class="side-column">
-        <section class="stats-card glass-panel">
-          <div class="panel-heading">
-            <span class="section-kicker">今日专注</span>
-            <strong data-daily-goal-label>0 / 4</strong>
-          </div>
-          <div class="daily-progress-bar large">
-            <span data-daily-progress></span>
-          </div>
-          <div class="stats-grid">
-            <div class="stat-tile">
-              <i data-lucide="timer"></i>
-              <span class="stat-value" data-stat-pomodoros>0</span>
-              <span class="stat-label">完成番茄</span>
-            </div>
-            <div class="stat-tile">
-              <i data-lucide="clock-3"></i>
-              <span class="stat-value" data-stat-minutes>0m</span>
-              <span class="stat-label">专注时长</span>
-            </div>
-            <div class="stat-tile">
-              <i data-lucide="flame"></i>
-              <span class="stat-value" data-stat-streak>0</span>
-              <span class="stat-label">连续天数</span>
-            </div>
-          </div>
-        </section>
+  const keyLight = new THREE.SpotLight(0x1a73e8, 8, 100, Math.PI/3, 0.5);
+  keyLight.position.set(20, 30, 20);
+  scene.add(keyLight);
 
-        <section class="task-section glass-panel" id="tasks">
-          <div class="task-section-header" data-toggle-tasks>
-            <div class="task-header-left">
-              <span class="section-kicker">任务队列</span>
-              <h2>今天要完成什么？</h2>
-            </div>
-            <div class="task-header-right">
-              <span class="task-count-badge" data-task-count>0 项任务</span>
-              <button class="task-toggle-btn" aria-label="展开或收起任务">
-                <i data-lucide="chevron-up" class="task-chevron"></i>
-              </button>
-            </div>
-          </div>
+  const rimLight = new THREE.PointLight(0x1a73e8, 5);
+  rimLight.position.set(-20, 10, -5);
+  scene.add(rimLight);
 
-          <div class="task-body" data-task-body>
-            <form class="task-form" data-task-form novalidate>
-              <input class="task-input" data-task-title placeholder="添加任务，例如：复习 Spring Security" maxlength="80" autocomplete="off">
-              <div class="task-estimate-wrap">
-                <input class="task-input task-estimate" data-task-estimate type="number" min="1" max="12" value="1" aria-label="预计番茄数">
-                <span class="estimate-unit">个</span>
-              </div>
-              <button class="focus-btn primary compact" type="submit" aria-label="添加任务">
-                <i data-lucide="plus"></i>
-              </button>
-            </form>
-            <div class="task-error" data-task-error></div>
-            <div class="task-list" data-task-list></div>
-          </div>
-        </section>
+  const coreGlow = new THREE.PointLight(0x1a73e8, 10, 20);
+  coreGlow.position.set(0, 0, 2);
+  scene.add(coreGlow);
 
-        <section class="history-card glass-panel" id="history">
-          <div class="panel-heading">
-            <div>
-              <span class="section-kicker">今日记录</span>
-              <strong data-history-summary>暂无专注记录</strong>
-            </div>
-          </div>
-          <div class="session-history" data-session-history></div>
-        </section>
-      </aside>
-    </section>
-  </main>
+  const clockGroup = new THREE.Group();
+  scene.add(clockGroup);
+  clockGroup.scale.setScalar(CLOCK_VISUAL_SCALE);
+  clockGroup.position.y = clockScrollY;
 
-  <div class="settings-overlay" data-settings-overlay hidden>
-    <div class="settings-panel">
-      <div class="settings-panel-header">
-        <div>
-          <span class="section-kicker">偏好设置</span>
-          <h2>节奏设置</h2>
-        </div>
-        <button class="settings-close-btn" data-settings-close aria-label="关闭设置">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
+  // --- Hyper-Impact 3D Components ---
 
-      <form class="settings-form" data-settings-form novalidate>
-        <label class="settings-field">
-          <div class="settings-field-info">
-            <span class="settings-field-label">专注时长</span>
-            <span class="settings-field-hint">1 - 120 分钟</span>
-          </div>
-          <input class="settings-input" data-setting-focus type="number" min="1" max="120" value="25">
-        </label>
-        <label class="settings-field">
-          <div class="settings-field-info">
-            <span class="settings-field-label">短休息</span>
-            <span class="settings-field-hint">1 - 60 分钟</span>
-          </div>
-          <input class="settings-input" data-setting-short type="number" min="1" max="60" value="5">
-        </label>
-        <label class="settings-field">
-          <div class="settings-field-info">
-            <span class="settings-field-label">长休息</span>
-            <span class="settings-field-hint">1 - 90 分钟</span>
-          </div>
-          <input class="settings-input" data-setting-long type="number" min="1" max="90" value="15">
-        </label>
-        <label class="settings-field">
-          <div class="settings-field-info">
-            <span class="settings-field-label">今日目标</span>
-            <span class="settings-field-hint">1 - 16 个番茄</span>
-          </div>
-          <input class="settings-input" data-setting-goal type="number" min="1" max="16" value="4">
-        </label>
-        <label class="settings-toggle-row">
-          <div class="settings-field-info">
-            <span class="settings-field-label">自动开始下一阶段</span>
-            <span class="settings-field-hint">完成后直接进入休息或专注</span>
-          </div>
-          <input class="switch-input" data-setting-auto-start type="checkbox">
-          <span class="switch-control" aria-hidden="true"></span>
-        </label>
-        <label class="settings-toggle-row">
-          <div class="settings-field-info">
-            <span class="settings-field-label">完成提示音</span>
-            <span class="settings-field-hint">倒计时结束时播放轻提示</span>
-          </div>
-          <input class="switch-input" data-setting-sound type="checkbox">
-          <span class="switch-control" aria-hidden="true"></span>
-        </label>
-        <div class="settings-error" data-settings-error></div>
-        <button class="focus-btn primary full-width" type="submit">
-          <i data-lucide="save"></i>
-          <span>保存设置</span>
-        </button>
-      </form>
-    </div>
-  </div>
+  // 1. Industrial Outer Frame (Massive presence)
+  const frameGeo = new THREE.TorusGeometry(12, 0.4, 32, 100);
+  const metalMat = new THREE.MeshPhongMaterial({
+    color: 0x0c1422,
+    specular: 0x1a73e8,
+    shininess: 150,
+    emissive: 0x000000,
+    transparent: true,
+    opacity: 0.18,
+    depthWrite: false
+  });
+  const frame = new THREE.Mesh(frameGeo, metalMat);
+  frame.rotation.x = Math.PI/2;
+  clockGroup.add(frame);
 
-  <div class="stats-modal" data-stats-modal hidden>
-    <div class="stats-modal-box">
-      <div class="stats-modal-header">
-        <h2>今日数据</h2>
-        <button data-stats-close aria-label="关闭统计">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="stats-modal-grid">
-        <div class="stats-big-number">
-          <strong data-stat-pomodoros>0</strong>
-          <span>完成番茄</span>
-        </div>
-        <div class="stats-big-number">
-          <strong data-stat-minutes>0m</strong>
-          <span>专注时长</span>
-        </div>
-        <div class="stats-big-number">
-          <strong data-stat-streak>0</strong>
-          <span>连续天数</span>
-        </div>
-      </div>
-      <div class="stats-modal-progress">
-        <div class="daily-progress-top">
-          <span>今日目标进度</span>
-          <strong data-daily-goal-label>0 / 4</strong>
-        </div>
-        <div class="daily-progress-bar">
-          <span data-daily-progress></span>
-        </div>
-      </div>
-      <p class="insight-copy" data-insight-copy>今天还没有开始，挑一个任务进入状态。</p>
-    </div>
-  </div>
+  // Inner neon ring
+  const neonRingGeo = new THREE.TorusGeometry(11.4, 0.05, 16, 100);
+  const neonMat = new THREE.MeshBasicMaterial({ color: 0x1a73e8 });
+  const neonRing = new THREE.Mesh(neonRingGeo, neonMat);
+  neonRing.rotation.x = Math.PI/2;
+  clockGroup.add(neonRing);
 
-  <div class="focus-modal" data-complete-modal hidden>
-    <div class="focus-modal-box">
-      <button class="modal-close" data-modal-close type="button" aria-label="关闭">
-        <i data-lucide="x"></i>
-      </button>
-      <div class="modal-mark">
-        <i data-lucide="badge-check"></i>
-      </div>
-      <h2 data-modal-title>专注完成</h2>
-      <p data-modal-message>完成一个番茄，离目标更近一步。</p>
-      <button class="focus-btn primary full-width" data-modal-next type="button">
-        <i data-lucide="play"></i>
-        <span>开始下一段</span>
-      </button>
-    </div>
-  </div>
+  // 2. Precision Ticks with Extreme Depth
+  for (let i = 0; i < 120; i++) {
+    const isMajor = i % 10 === 0;
+    const isMinor = i % 2 === 0;
+    if (!isMinor) continue;
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/dashboard.js"></script>
-</body>
-</html>
+    const tickGeo = new THREE.BoxGeometry(isMajor ? 0.15 : 0.05, isMajor ? 2.5 : 1.2, 0.8);
+    const tickMat = new THREE.MeshPhongMaterial({
+      color: isMajor ? 0x1a73e8 : 0x444444,
+      emissive: isMajor ? 0x1a73e8 : 0x000000,
+      emissiveIntensity: 0.8,
+      transparent: true,
+      opacity: isMajor ? 1 : 0.4
+    });
+    const tick = new THREE.Mesh(tickGeo, tickMat);
+    const angle = (i / 120) * Math.PI * 2;
+    tick.position.x = Math.cos(angle) * 10.5;
+    tick.position.y = Math.sin(angle) * 10.5;
+    tick.rotation.z = angle + Math.PI / 2;
+    tick.rotation.x = 0.3; // Dramatic tilt
+    clockGroup.add(tick);
+  }
+
+  // 3. The "Broadsword" Needle (Extreme impact)
+  const handPivot = new THREE.Group();
+  clockGroup.add(handPivot);
+
+  // Main needle body with faceted look
+  const needleGeo = new THREE.CylinderGeometry(0.02, 0.25, 11, 4, 1);
+  const needleMat = new THREE.MeshPhongMaterial({
+    color: 0x1a73e8,
+    emissive: 0x1a73e8,
+    emissiveIntensity: 1.2,
+    shininess: 200,
+    transparent: true,
+    opacity: 0.9
+  });
+  const needle = new THREE.Mesh(needleGeo, needleMat);
+  needle.position.y = 5.5;
+  handPivot.add(needle);
+
+  // 4. Reactor Core Hub
+  const coreHub = new THREE.Group();
+  clockGroup.add(coreHub);
+
+  const coreGeo = new THREE.SphereGeometry(0.8, 32, 32);
+  const coreMaterial = new THREE.MeshPhongMaterial({
+    color: 0x1a73e8,
+    emissive: 0x1a73e8,
+    emissiveIntensity: 2,
+    shininess: 500
+  });
+  const core = new THREE.Mesh(coreGeo, coreMaterial);
+  coreHub.add(core);
+
+  // Energy rings around core
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.03, 16, 64), neonMat);
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.02, 16, 64), neonMat);
+  coreHub.add(ring1);
+  coreHub.add(ring2);
+
+  // --- Atmospheric Elements ---
+  const starGeo = new THREE.BufferGeometry();
+  const starCount = 1200;
+  const posArr = new Float32Array(starCount * 3);
+  for(let i=0; i<starCount*3; i++) {
+    posArr[i] = (Math.random() - 0.5) * 60;
+  }
+  starGeo.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+  const starMat = new THREE.PointsMaterial({
+    color: 0x1a73e8,
+    size: 0.08,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending
+  });
+  const stars = new THREE.Points(starGeo, starMat);
+  scene.add(stars);
+
+  // Timer Integration
+  let totalTime = 25 * 60;
+  let remainingTime = totalTime;
+  let isActive = false;
+  let startedAt = 0;
+
+  function clampTime(value) {
+    return Math.max(0, Math.min(totalTime, Number.isFinite(value) ? value : totalTime));
+  }
+
+  function applyNeedleFromRemaining() {
+    const progress = totalTime > 0 ? 1 - (remainingTime / totalTime) : 0;
+    handPivot.rotation.z = -progress * Math.PI * 2;
+    window.__studyFlowClockNeedle = {
+      progress,
+      rotation: handPivot.rotation.z,
+      totalTime,
+      remainingTime
+    };
+  }
+
+  function startClock(minutes, remaining) {
+    totalTime = Math.max(1, Number(minutes || 25)) * 60;
+    remainingTime = clampTime(Number.isFinite(remaining) ? remaining : totalTime);
+    startedAt = performance.now() - (totalTime - remainingTime) * 1000;
+    isActive = true;
+    applyNeedleFromRemaining();
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.data.type === 'START_TIMER') {
+      startClock(event.data.minutes, Number(event.data.remaining));
+    }
+    if (event.data.type === 'PAUSE_TIMER') {
+      remainingTime = clampTime(Number(event.data.remaining ?? remainingTime));
+      isActive = false;
+      applyNeedleFromRemaining();
+    }
+    if (event.data.type === 'RESET_TIMER') {
+      totalTime = Math.max(1, Number(event.data.minutes || totalTime / 60 || 25)) * 60;
+      isActive = false;
+      remainingTime = totalTime;
+      applyNeedleFromRemaining();
+    }
+    if (event.data.type === 'SET_TIMER_DURATION' && !isActive) {
+      totalTime = Math.max(1, Number(event.data.minutes || 25)) * 60;
+      remainingTime = totalTime;
+      applyNeedleFromRemaining();
+    }
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const time = Date.now() * 0.001;
+
+    if (isActive) {
+      const elapsed = (performance.now() - startedAt) / 1000;
+      remainingTime = clampTime(totalTime - elapsed);
+      applyNeedleFromRemaining();
+
+      // Pulse effects
+      coreMaterial.emissiveIntensity = 2 + Math.sin(time * 10) * 1.5;
+      coreGlow.intensity = 10 + Math.sin(time * 10) * 5;
+      if (remainingTime <= 0) {
+        isActive = false;
+      }
+    } else {
+      applyNeedleFromRemaining();
+    }
+
+    // Extreme Movement
+    clockGroup.rotation.x = Math.sin(time * 0.3) * 0.15;
+    clockGroup.rotation.y = Math.cos(time * 0.2) * 0.25;
+    clockGroup.position.y = clockScrollY + Math.sin(time * 0.5) * 0.25;
+
+    ring1.rotation.x = time * 2;
+    ring1.rotation.y = time * 1.5;
+    ring2.rotation.y = time * -1.8;
+    ring2.rotation.z = time * 1.2;
+
+    stars.rotation.y += 0.001;
+    stars.position.z = Math.sin(time * 0.1) * 5;
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+    updateClockScrollFollow();
+  });
+
+  window.addEventListener('scroll', updateClockScrollFollow, { passive: true });
+  updateClockScrollFollow();
+
+  animate();
+})();
+</script>
+<script type="module" src="js/app/main.js"></script>
+</body></html>

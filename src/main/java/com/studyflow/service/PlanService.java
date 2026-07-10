@@ -34,6 +34,7 @@ import java.util.Set;
 public class PlanService {
 
     private static final Set<String> STATUSES = Set.of("TODO", "IN_PROGRESS", "DONE");
+    private static final long MAX_PAGE_SIZE = 100;
 
     private final PlanMapper planMapper;
     private final PlanItemMapper planItemMapper;
@@ -47,7 +48,8 @@ public class PlanService {
         if (normalizedStatus != null && !STATUSES.contains(normalizedStatus)) {
             throw new BusinessException(ErrorCode.BAD_REQUEST, "状态参数无效");
         }
-        Page<Plan> pageRequest = new Page<>(Math.max(page, 1), Math.max(size, 1));
+        long safeSize = Math.min(Math.max(size, 1), MAX_PAGE_SIZE);
+        Page<Plan> pageRequest = new Page<>(Math.max(page, 1), safeSize);
         IPage<Plan> result = planMapper.selectUserPlanPage(
                 pageRequest,
                 userId,
@@ -158,8 +160,8 @@ public class PlanService {
         update.setStatus(status);
         planMapper.updateById(update);
 
+        recalculateProgressAndStatus(id);
         if ("DONE".equals(status)) {
-            recalculateProgressAndStatus(id);
             Long totalItems = planItemMapper.selectCount(new LambdaQueryWrapper<PlanItem>().eq(PlanItem::getPlanId, id));
             if (totalItems == 0) {
                 Plan doneWithoutItems = new Plan();

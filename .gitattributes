@@ -10,6 +10,8 @@
 *.html text eol=lf
 *.sql text eol=lf
 *.properties text eol=lf
+*.toml text eol=lf
+.env* text eol=lf
 
 *.cmd text eol=crlf
 *.bat text eol=crlf
