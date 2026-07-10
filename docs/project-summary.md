@@ -2,11 +2,11 @@
 
 ## 项目标题
 
-StudyFlow 学习计划管理系统 | Spring Boot / MySQL / Redis / JWT / Docker
+StudyFlow 学习计划管理系统 | Spring Boot / MySQL / Redis / JWT / Flyway / Docker
 
 ## 项目概述
 
-基于 Spring Boot 3.2、Spring Security、JWT、MyBatis-Plus、MySQL、Redis 和原生 HTML/CSS/JavaScript 实现的学习计划管理系统，支持用户认证、计划管理、任务清单、进度统计、活动日志、站内到期提醒和 Docker Compose 一键部署。
+基于 Spring Boot 3.2、Spring Security、JWT、MyBatis-Plus、MySQL、Redis、Tailwind CSS、JavaScript ES Modules 和 Three.js 实现的学习计划管理系统，支持用户认证、计划管理、任务清单、进度统计、活动日志、站内到期提醒和 Docker Compose 一键部署。
 
 ## 核心实现
 

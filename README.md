@@ -11,9 +11,11 @@ Netlify 不能运行 Spring Boot，因此线上地址采用浏览器演示后端
 
 ## 项目截图
 
-| 桌面端仪表盘 | 移动端适配 |
+以下截图由当前版本的 Netlify 静态演示模式生成。
+
+| 桌面端学习总览 | 移动端计划工作区 |
 | --- | --- |
-| ![StudyFlow desktop dashboard](docs/screenshots/dashboard-desktop.png) | ![StudyFlow mobile dashboard](docs/screenshots/dashboard-mobile.png) |
+| ![StudyFlow 桌面端学习总览](docs/screenshots/dashboard-desktop.png) | ![StudyFlow 移动端计划工作区](docs/screenshots/dashboard-mobile.png) |
 
 ## 技术栈
 
